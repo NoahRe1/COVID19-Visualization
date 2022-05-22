@@ -73,7 +73,7 @@ def get_json(param: str) -> str:
                               'cured': trend[i][6]} for i in range(len(trend))]  # 写入三十日数据
 
         # 转换为JSON格式
-        json_data = json.dumps(raw_data)
+        json_data = json.dumps(raw_data,ensure_ascii=False)
 
         # 缓存文件
         if raw_data["trend"][0]["date"] == str(today):
@@ -92,7 +92,7 @@ def get_json(param: str) -> str:
              'dead': city[i][3], 'cured': city[i][4]} for i in range(len(city))]
 
         # 转换为JSON格式
-        json_data = json.dumps(raw_data)
+        json_data = json.dumps(raw_data,ensure_ascii=False)
 
     db.close()  # 关闭数据库
     return json_data
