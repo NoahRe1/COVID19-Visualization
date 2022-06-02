@@ -13,7 +13,7 @@ def get_json(param: str) -> str:
         JSON类型的数据
     """
 
-    db = pymysql.connect(host="localhost", user="root", password="mm20020207", database="covid19")  # 数据库连接
+    db = pymysql.connect(host="localhost", user="root", password="123456", database="covid19")  # 数据库连接
     cursor = db.cursor()  # 游标
     raw_data = dict()  # 字典类型的数据
     today = datetime.date.today()  # 今天日期
@@ -107,14 +107,13 @@ def spelling(province: str) -> str:
     Returns:
         对应的拼音
     """
-    mapping = {"taiwan": "台湾", "xianggang": "香港", "shanghai": "上海", "zhejiang": "浙江", "beijing": "北京",
-               "sichuan": "四川", "henan": "河南", "jilin": "吉林", "shandong": "山东", "fujian": "福建",
-               "tianjin": "天津", "qinghai": "青海", "hainan": "海南", "guangxi": "广西", "yunnan": "云南",
-               "liaoning": "辽宁", "jiangsu": "江苏", "hunan": "湖南", "chongqing": "重庆", "hebei": "河北",
-               "jiangxi": "江西", "neimenggu": "内蒙古", "guizhou": "贵州", "shaanxi": "陕西", "hubei": "湖北",
-               "heilongjiang": "黑龙江", "anhui": "安徽", "xinjiang": "新疆", "gansu": "甘肃", "shanxi": "山西",
-               "ningxia": "宁夏", "aomen": "澳门", "xizang": "西藏"
-               }
+    mapping = {"taiwan": "台湾", "xianggang": "香港", "shanghai": "上海市", "zhejiang": "浙江省", "beijing": "北京市",
+               "sichuan": "四川省", "henan": "河南省", "jilin": "吉林省", "shandong": "山东省", "fujian": "福建省",
+               "tianjin": "天津市", "qinghai": "青海省", "hainan": "海南省", "guangxi": "广西壮族自治区", "yunnan": "云南省",
+               "liaoning": "辽宁省", "jiangsu": "江苏省", "hunan": "湖南省", "chongqing": "重庆市", "hebei": "河北省",
+               "jiangxi": "江西省", "neimenggu": "内蒙古自治区", "guizhou": "贵州省", "shaanxi": "陕西省", "hubei": "湖北省",
+               "heilongjiang": "黑龙江省", "anhui": "安徽省", "xinjiang": "新疆维吾尔自治区", "gansu": "甘肃省",
+               "shanxi": "山西省", "ningxia": "宁夏回族自治区", "aomen": "澳门", "xizang": "西藏自治区"}
     return mapping[province]
 
 
