@@ -6,9 +6,9 @@
     ],
     "window": {
         "backgroundTextStyle": "dark",
-        "navigationBarBackgroundColor": "#fff",
+        "navigationBarBackgroundColor": "#5D9EF3",
         "navigationBarTitleText": "新冠疫情动态",
-        "navigationBarTextStyle": "black",
+        "navigationBarTextStyle": "white",
         "enablePullDownRefresh": true,
         "backgroundColor": "#fff"
     },
@@ -29,5 +29,6 @@
 
     },
     "style": "v2",
-    "sitemapLocation": "sitemap.json"
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
 }

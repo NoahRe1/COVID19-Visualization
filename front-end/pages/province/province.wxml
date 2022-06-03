@@ -3,6 +3,7 @@
  <view class="title">{{name}}</view>
  <view class="box">
     <table
+      wx:if="{{city.length>0}}"
       class="dataTable"
       dataAttribute="{{dataAttribute}}"
       CovData="{{city}}"
@@ -10,5 +11,6 @@
       columnWidth="{{columnWidth}}"
   >
   </table>
+  <view wx:else>无该地区数据</view>
   </view>
 </view>

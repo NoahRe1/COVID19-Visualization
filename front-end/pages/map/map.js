@@ -79,7 +79,7 @@ Page({
     },
 
     initChartMap: function (canvas, width, height, dpr) {
-      let myMap = echarts.init(canvas, null, {
+      let myMap = echarts.init(canvas, 'light', {
         width: width,
         height: height,
         devicePixelRatio: dpr // new
@@ -210,6 +210,7 @@ Page({
               that.setData({
                 overall:res.data.overall,
                 province:res.data.province,
+                date:res.data.date
               })
               let mapData=[]
               let provincename={

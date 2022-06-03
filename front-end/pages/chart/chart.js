@@ -43,7 +43,7 @@ Page({
     },
 
     initChart: function (canvas, width, height, dpr) {
-      let chart = echarts.init(canvas, null, {
+      let chart = echarts.init(canvas, 'light', {
         width: width,
         height: height,
         devicePixelRatio: dpr
@@ -73,15 +73,18 @@ Page({
         },
         series: [{
           data: currentConfirmed,
-          type: 'line'
+          type: 'line',
+          smooth:true,
+          symbol: 'circle',
+          symbolSize: 3,
         }],
         grid: {
           show: true,
-          x: 70,
+          x: 80,
           y: 40,
           x2: 15,
           y2: 20,
-          height: "50%",
+          height: "60%",
         }
       };
       chart.setOption(option);
@@ -99,12 +102,13 @@ Page({
         name: options.name
       }) 
       wx.request({
-        url: 'http://192.168.3.2:5000/trend',//https://lab.isaaclin.cn/nCoV/api/overall
+        url: 'http://192.168.3.2:5000/trend',
         header:{
           "Content-type": "application/json"
         },
         success (res) {
-          console.log(res)
+          console.log("获得三十日数据")
+          console.log(res.data)
           that.setData({
             trend: res.data.trend
           })

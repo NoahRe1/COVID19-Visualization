@@ -1,6 +1,8 @@
 <view class="container">
-  <view class="title">全国疫情概况</view>
-  <view class="box">
+  <view class="bigTitle">新冠疫情数据可视化</view>
+  <view class="smallTitle">数据更新时间：{{date}}</view>
+  <view class="title">全国概况</view>
+  <view class="box overall">
     <view class="row">
       <view class="left">累计确诊</view>
       <view class="right">{{overall.confirmed}}</view>

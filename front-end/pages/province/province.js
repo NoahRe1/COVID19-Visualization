@@ -42,7 +42,7 @@ Page({
         spell:options.spell
       })
       wx.request({
-        url: 'http://192.168.3.2:5000/'+this.data.spell,//https://lab.isaaclin.cn/nCoV/api/overall
+        url: 'http://192.168.3.2:5000/'+this.data.spell,
         header:{
           "Content-type": "application/json"
         },

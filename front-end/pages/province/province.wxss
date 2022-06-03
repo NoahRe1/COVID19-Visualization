@@ -1,9 +1,6 @@
 /* pages/province/province.wxss */
-.title{
-  padding: 10rpx;
-  text-align: center;
-  font-size: large;
-  font-weight: bold;
+.container{
+    justify-content:flex-start ;
 }
 
 .box{
