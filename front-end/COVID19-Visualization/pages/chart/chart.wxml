@@ -1,0 +1,19 @@
+<!--pages/chart/chart.wxml-->
+<view class="container">
+  <view class="title">疫情趋势图</view>
+  <view class="chart">
+    <ec-canvas id="mychart-dom-bar" class="mychart-bar" ec="{{ ecChart }}"></ec-canvas>
+  </view>
+  
+  <view class="title">三十日数据</view>
+  <view class="box">
+    <table
+      class="dataTable"
+      dataAttribute="{{dataAttribute}}"
+      CovData="{{trend}}"
+      rowHeight="{{rowHeight}}"
+      columnWidth="{{columnWidth}}"
+  >
+  </table>
+  </view>
+</view>

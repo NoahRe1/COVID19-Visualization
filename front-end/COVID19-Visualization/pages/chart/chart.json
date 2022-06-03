@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "table":"../../components/table/table",
+    "ec-canvas":"../../components/ECharts/ec-canvas"
+  }
+}

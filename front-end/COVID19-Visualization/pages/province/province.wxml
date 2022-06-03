@@ -1,0 +1,14 @@
+<!--pages/province/province.wxml-->
+<view class="container">
+ <view class="title">{{name}}</view>
+ <view class="box">
+    <table
+      class="dataTable"
+      dataAttribute="{{dataAttribute}}"
+      CovData="{{city}}"
+      rowHeight="{{rowHeight}}"
+      columnWidth="{{columnWidth}}"
+  >
+  </table>
+  </view>
+</view>

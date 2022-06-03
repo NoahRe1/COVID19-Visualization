@@ -1,0 +1,16 @@
+<scrollView class="table" scroll-x scroll-y bindscrolltolower="handleScrollToLower">
+  <view class="sticky-box" style="height:{{(areaData.length+1)*rowHeight}}rpx;">
+    <!-- 表格头 -->
+    <view class="table__head" style="width:{{dataAttribute.length*columnWidth}}rpx;">
+      <view class="table__head__td" wx:for="{{dataAttribute}}" wx:key="*this" wx:for-index="attrIndex" wx:for-item="attrItem" bindtap="sortTable" data-key="{{attrItem.key}}">
+      {{attrItem.title}}
+      </view>
+    </view>
+    <!-- 表格体 -->
+    <view class="table__row" wx:for="{{CovData}}" wx:key="*this" wx:for-index="dataIndex" wx:for-item="dataItem" style="width:{{dataAttribute.length*columnWidth}}rpx;" bindtap="tapline" data-name="{{dataItem.name}}">
+      <view class="table__row__td" wx:for="{{dataAttribute}}" wx:key="*this" wx:for-index="attrIndex" wx:for-item="attrItem">
+      {{dataItem[attrItem.key]}}
+      </view>
+    </view>
+  </view>
+</scrollView>

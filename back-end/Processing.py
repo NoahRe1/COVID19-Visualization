@@ -36,13 +36,13 @@ def get_json(param: str) -> str:
             cursor.execute(f"select * from overall where date='{date}'")
             overall = cursor.fetchone()  # 昨日概况数据
         raw_data['date'] = str(date)  # 写入日期
-        raw_data['overall'] = {'currentConfirmed': overall[1], ' overseas': overall[2], 'asymptomatic': overall[3],
+        raw_data['overall'] = {'currentConfirmed': overall[1], 'overseas': overall[2], 'asymptomatic': overall[3],
                                'confirmed': overall[4], 'dead': overall[5], 'cured': overall[6]}  # 写入概况数据
 
         # 获取省级数据
         cursor.execute(
             f"select province,currentConfirmed,confirmed,dead,cured from area "
-            f"where date='{date}' and city='总计'")
+            f"where date='{date}' and city='总计' order by currentConfirmed DESC")
         province = cursor.fetchall()  # 省级数据
         raw_data['province'] = [
             {'name': province[i][0], 'currentConfirmed': province[i][1], 'confirmed': province[i][2],
@@ -85,7 +85,7 @@ def get_json(param: str) -> str:
         # 获取市级数据
         cursor.execute(
             f"select city,currentConfirmed,confirmed,dead,cured from area "
-            f"where province='{spelling(param)}' and city<>'总计'")
+            f"where province='{spelling(param)}' and date='{today}' and city<>'总计' order by currentConfirmed DESC")
         city = cursor.fetchall()
         raw_data["city"] = [
             {'name': city[i][0], 'currentConfirmed': city[i][1], 'confirmed': city[i][2],
@@ -113,7 +113,7 @@ def spelling(province: str) -> str:
                "liaoning": "辽宁省", "jiangsu": "江苏省", "hunan": "湖南省", "chongqing": "重庆市", "hebei": "河北省",
                "jiangxi": "江西省", "neimenggu": "内蒙古自治区", "guizhou": "贵州省", "shaanxi": "陕西省", "hubei": "湖北省",
                "heilongjiang": "黑龙江省", "anhui": "安徽省", "xinjiang": "新疆维吾尔自治区", "gansu": "甘肃省",
-               "shanxi": "山西省", "ningxia": "宁夏回族自治区", "aomen": "澳门", "xizang": "西藏自治区"}
+               "guangdong":"广东省","shanxi": "山西省", "ningxia": "宁夏回族自治区", "aomen": "澳门", "xizang": "西藏自治区"}
     return mapping[province]
 
 

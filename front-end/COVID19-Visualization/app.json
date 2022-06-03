@@ -1,0 +1,33 @@
+{
+    "pages": [
+        "pages/map/map",
+        "pages/chart/chart",
+        "pages/province/province"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "新冠疫情动态",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true,
+        "backgroundColor": "#fff"
+    },
+    "tabBar": {
+        "list": [{
+            "pagePath": "pages/map/map",
+            "text": "疫情地图",
+            "iconPath": "icon/map_0.png",
+            "selectedIconPath": "icon/map_1.png"
+        },{
+            "pagePath": "pages/chart/chart",
+            "text": "趋势分析",
+            "iconPath": "icon/chart_0.png",
+            "selectedIconPath": "icon/chart_1.png"
+        }],
+        "color": "#000000",
+        "selectedColor": "#000000"
+
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

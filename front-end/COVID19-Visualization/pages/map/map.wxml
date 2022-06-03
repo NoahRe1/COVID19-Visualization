@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="title">全国疫情概况</view>
+  <view class="box">
+    <view class="row">
+      <view class="left">累计确诊</view>
+      <view class="right">{{overall.confirmed}}</view>
+    </view>
+    <view class="row">
+      <view class="left">现存确诊</view>
+      <view class="right">{{overall.currentConfirmed}}</view>
+    </view>
+    <view class="row">
+      <view class="left">境外输入</view>
+      <view class="right">{{overall.overseas}}</view>
+    </view>
+    <view class="row">
+      <view class="left">现存无症状</view>
+      <view class="right">{{overall.asymptomatic}}</view>
+    </view>
+    <view class="row">
+      <view class="left">累计死亡</view>
+      <view class="right">{{overall.dead}}</view>
+    </view>
+    <view class="row">
+      <view class="left">累计治愈</view>
+      <view class="right">{{overall.cured}}</view>
+    </view>
+  </view>
+
+  <view class="title">疫情地图</view>
+  <view class="map">
+    <ec-canvas id="mychart-dom-map" canvas-id="mychart-map" ec="{{ ecMap }}" ></ec-canvas>
+  </view>
+
+  <view class="title">详细数据</view>
+  <view class="box">
+    <table
+      class="dataTable"
+      dataAttribute="{{dataAttribute}}"
+      CovData="{{province}}"
+      rowHeight="{{rowHeight}}"
+      columnWidth="{{columnWidth}}"
+      bind:province="provincePage"
+  >
+  </table>
+  </view>
+</view>
+
