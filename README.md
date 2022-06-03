@@ -26,7 +26,7 @@
 
 ```
 COVID19-Visualization
-│
+|
 ├─README.md
 │
 ├─back-end
@@ -40,58 +40,55 @@ COVID19-Visualization
 │      需求分析.pdf
 │
 ├─front-end
-│  └─COVID19-Visualization
-│      │  .eslintrc.js
-│      │  app.js
-│      │  app.json
-│      │  app.wxss
-│      │  project.config.json
-│      │  project.private.config.json
-│      │  sitemap.json
+│  │  app.js
+│  │  app.json
+│  │  app.wxss
+│  │  project.config.json
+│  │  project.private.config.json
+│  │  sitemap.json
+│  │
+│  ├─components
+│  │  ├─ECharts
+│  │  │  │  ec-canvas.js
+│  │  │  │  ec-canvas.json
+│  │  │  │  ec-canvas.wxml
+│  │  │  │  ec-canvas.wxss
+│  │  │  │  echarts.js
+│  │  │  │  wx-canvas.js
+│  │  │  │
+│  │  │  └─mapData
+│  │  │          map-china.js
+│  │  │
+│  │  └─table
+│  │          table.js
+│  │          table.json
+│  │          table.wxml
+│  │          table.wxss
+│  │
+│  ├─icon
+│  │      chart_0.png
+│  │      chart_1.png
+│  │      map_0.png
+│  │      map_1.png
+│  │
+│  └─pages
+│      ├─chart
+│      │      chart.js
+│      │      chart.json
+│      │      chart.wxml
+│      │      chart.wxss
 │      │
-│      ├─components
-│      │  ├─ECharts
-│      │  │  │  ec-canvas.js
-│      │  │  │  ec-canvas.json
-│      │  │  │  ec-canvas.wxml
-│      │  │  │  ec-canvas.wxss
-│      │  │  │  echarts.js
-│      │  │  │  echarts1.js
-│      │  │  │  wx-canvas.js
-│      │  │  │
-│      │  │  └─mapData
-│      │  │          map-china.js
-│      │  │
-│      │  └─table
-│      │          table.js
-│      │          table.json
-│      │          table.wxml
-│      │          table.wxss
+│      ├─map
+│      │      map.js
+│      │      map.json
+│      │      map.wxml
+│      │      map.wxss
 │      │
-│      ├─icon
-│      │      chart_0.png
-│      │      chart_1.png
-│      │      map_0.png
-│      │      map_1.png
-│      │
-│      └─pages
-│          ├─chart
-│          │      chart.js
-│          │      chart.json
-│          │      chart.wxml
-│          │      chart.wxss
-│          │
-│          ├─map
-│          │      map.js
-│          │      map.json
-│          │      map.wxml
-│          │      map.wxss
-│          │
-│          └─province
-│                  province.js
-│                  province.json
-│                  province.wxml
-│                  province.wxss
+│      └─province
+│              province.js
+│              province.json
+│              province.wxml
+│              province.wxss
 │
 └─images
         程序架构.png
