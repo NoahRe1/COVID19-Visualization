@@ -66,14 +66,16 @@ def get_json(param: str) -> str:
                 return json_data
 
         # 获取三十日数据
-        cursor.execute(f"select * from overall order by date DESC")
+        cursor.execute(f"select * from overall where date>'{today + datetime.timedelta(days=-30)}'"
+                       f"order by date DESC")
         trend = cursor.fetchall()  # 三十日数据
+        print(trend)
         raw_data['trend'] = [{'date': str(trend[i][0]), 'currentConfirmed': trend[i][1], 'overseas': trend[i][2],
                               'asymptomatic': trend[i][3], 'confirmed': trend[i][4], 'dead': trend[i][5],
                               'cured': trend[i][6]} for i in range(len(trend))]  # 写入三十日数据
 
         # 转换为JSON格式
-        json_data = json.dumps(raw_data,ensure_ascii=False)
+        json_data = json.dumps(raw_data, ensure_ascii=False)
 
         # 缓存文件
         if raw_data["trend"][0]["date"] == str(today):
@@ -87,12 +89,18 @@ def get_json(param: str) -> str:
             f"select city,currentConfirmed,confirmed,dead,cured from area "
             f"where province='{spelling(param)}' and date='{today}' and city<>'总计' order by currentConfirmed DESC")
         city = cursor.fetchall()
+        # 若今日无数据，获取昨日数据
+        if len(city) == 0:
+            cursor.execute(
+                f"select city,currentConfirmed,confirmed,dead,cured from area where province='{spelling(param)}' and "
+                f"date='{today + datetime.timedelta(days=-1)}' and city<>'总计' order by currentConfirmed DESC")
+            city = cursor.fetchall()
         raw_data["city"] = [
             {'name': city[i][0], 'currentConfirmed': city[i][1], 'confirmed': city[i][2],
              'dead': city[i][3], 'cured': city[i][4]} for i in range(len(city))]
 
         # 转换为JSON格式
-        json_data = json.dumps(raw_data,ensure_ascii=False)
+        json_data = json.dumps(raw_data, ensure_ascii=False)
 
     db.close()  # 关闭数据库
     return json_data
@@ -113,7 +121,7 @@ def spelling(province: str) -> str:
                "liaoning": "辽宁省", "jiangsu": "江苏省", "hunan": "湖南省", "chongqing": "重庆市", "hebei": "河北省",
                "jiangxi": "江西省", "neimenggu": "内蒙古自治区", "guizhou": "贵州省", "shaanxi": "陕西省", "hubei": "湖北省",
                "heilongjiang": "黑龙江省", "anhui": "安徽省", "xinjiang": "新疆维吾尔自治区", "gansu": "甘肃省",
-               "guangdong":"广东省","shanxi": "山西省", "ningxia": "宁夏回族自治区", "aomen": "澳门", "xizang": "西藏自治区"}
+               "guangdong": "广东省", "shanxi": "山西省", "ningxia": "宁夏回族自治区", "aomen": "澳门", "xizang": "西藏自治区"}
     return mapping[province]
 
 
